@@ -1,19 +1,20 @@
-function [x_0] = secant(a, b, factors, eps, x1, x2, max_iter)
+function [x_0] = secant(f, x1, x2, eps, max_iter)
 % funkcja oblicza wartosc miejsca zerowego funkcji func
 % w przedziale (a, b) 
 
 % jezeli przedział jest podany na odwrót to odwaracamy go
-if b < a
-    disp("podano na odwrót przedział")
-    p = a;
-    a = b;
-    b = p;
+
+if nargin <= 1
+    x1 = 1;
+    x2 = 2;
 end
-if nargin == 3
-    eps = 0.1;
-    x1 = (a+b)/2;
-    x2 = a + (b-a)/3;
-    max_iter = 10;
+
+if nargin <= 3
+    eps = 0.01;
+end
+
+if nargin <= 4
+    max_iter = 100;
 end
 
 iter = 2;
@@ -27,9 +28,6 @@ x = zeros(max_iter+1, 1);
 x(1) = x1;
 x(2) = x2;
 
-disp("3 - trzecie")
-disp(x(3))
-
 while iter <= max_iter
     % jezeli przybliżenia są dostatecznie blisko siebie, to konczymy
     % dzialanie programu
@@ -38,11 +36,8 @@ while iter <= max_iter
         return 
     end
     % liczymy kolejne przyblizenie miejsca zerowego
-    fdiff = find_cos(x(iter), factors) - find_cos(x(iter-1), factors);
-    disp(fdiff)
-
-    disp(x(iter))
-    x(iter+1) = x(iter) - find_cos(x(iter), factors)*(x(iter) - x(iter-1))/fdiff;
+    fdiff = f(x(iter)) - f(x(iter-1));
+    x(iter+1) = x(iter) - f(x(iter))*(x(iter) - x(iter-1))/fdiff;
     iter = iter + 1;
 end
 % jezeli doszlismy do tego miejsca to de facto nie znaleziono miejsca zerowego
