@@ -1,4 +1,4 @@
-function [w] = find_cos(z, factors)
+function [w] = find_cos(factors, z)
 % funkcja oblicza wartość wielomianu p(x) = sum_{k=1}^n a_n * cos(kx) 
 % za pomocą funckji goertzel.m
 % parametry
@@ -20,5 +20,5 @@ z2 = exp(-1i.*z);
 % dzielimy przez dwa, aby otrzymać odpowiednią postać
 factors = factors/2;
 
-w = goertzel(z1, factors) + goertzel(z2, factors);
+w = goertzelPolynomial(factors, z1) + goertzelPolynomial(factors, z2);
 end
