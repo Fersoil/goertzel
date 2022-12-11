@@ -10,7 +10,7 @@ f1 = @(x) find_cos(x, factors1);
 fprintf("Przykładowe miejsce zerowe dla wielomianu ze współczynnikami: ")
 disp(factors1)
 [x, steps] = secant(f1, 1, 0, 10^(-10), 10^3);
-fprintf("oraz precyzją 10e-10: %f do takiego rezultatu doszliśmy w %d krokach", x, steps)
+fprintf("oraz precyzją 10e-10: %f do takiego rezultatu doszliśmy w %d krokach\n", x, steps)
 
 
 %% teraz czas na troche wizualizacji zbieżności
@@ -21,10 +21,9 @@ fprintf("oraz precyzją 10e-10: %f do takiego rezultatu doszliśmy w %d krokach"
 % przyjmujemy, że drugi miejsce startowe to 0 
 
 A = createMatrix(-1,1,-1,1,500,500);
-B1 = matrixOfIterations(@secant, f1, A, 0, 0.01, 10);
 
 fprintf("heatmapa zbieżności dla liczb zespolonych od -1-i do 1+i i dokładności 0.01")
-imagesc(B1)
+visualise(@secant, f1, A);
 
 %% teraz weźmiemy sobie inne factors
 
@@ -55,6 +54,16 @@ fprintf("oraz precyzją 10e-10: %f do takiego rezultatu doszliśmy w %d krokach\
 
 visualise(@secant, f3, A)
 
+%% teraz czas na gigantyczny przykład
 
+factors4 = linspace(-pi, pi, 1000);
+
+
+fprintf("Teraz współczynnikami będzie wektor od -pi do pi z 1000 krokami: \n")
+f4 = @(x) find_cos(x, factors4);
+
+fprintf("wizualizacja zbieżności z drugim punktem startowym o wartości 1\n")
+
+visualise(@secant, f4, A, 0.1);
 
 
