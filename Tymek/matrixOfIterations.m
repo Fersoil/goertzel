@@ -24,7 +24,7 @@ B = zeros(n,m);
 
 for i=1:n
     for j=1:m
-        [x_0,iter] = approx_func(func, A(i,j), x2, eps, max_iter);
+        [x_0,iter] = approx_func(func, A(i,j),  x2, eps, max_iter);
         B(i,j) = iter;
     end
 end

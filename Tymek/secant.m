@@ -42,6 +42,12 @@ x = zeros(max_iter+1, 1);
 x(1) = x1;
 x(2) = x2;
 
+if x1 == x2
+    x_0 = NaN;
+    iter = max_iter+1;
+    return
+end
+
 while iter <= max_iter
     % jezeli przybliżenia są dostatecznie blisko siebie, to konczymy
     % dzialanie programu
