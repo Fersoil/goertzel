@@ -1,8 +1,19 @@
 function [w] = find_cos(z, factors)
-% oblicz wartość wielomianu p(x) = sum_{k=1}^n a_n * cos(kx) za pomocą
-% funckji goertzel.m
-% params: z - wartość
+% funkcja oblicza wartość wielomianu p(x) = sum_{k=1}^n a_n * cos(kx) 
+% za pomocą funckji goertzel.m
+% parametry
+% z - argumentu funkcji, w którym wyznaczamy wartość wielomianu - liczba
+% zespolona
 % factors - wektor opisujący współczynniki a_i
+
+%% funkcja wykorzystuje własność cos(x) = 0.5exp(ix) + 0.5exp(-ix)
+
+
+% upewniamy się że współczynniki mają odpowiedni format, tzn są wektorem
+% pionowym
+if not(iscolumn(factors))
+    factors = factors';
+end
 
 z1 = exp(1i.*z);
 z2 = exp(-1i.*z);

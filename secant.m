@@ -1,9 +1,23 @@
-function [x_0] = secant(f, x1, x2, eps, max_iter)
-% funkcja oblicza wartosc miejsca zerowego funkcji func
-% w przedziale (a, b) 
+function [x_0, iter] = secant(f, x1, x2, eps, max_iter)
+% funkcja oblicza przybliżoną wartosc miejsca zerowego funkcji f
+% metododą siecznych
+% rozpoczynając dla parametrów startowych x1 i x2
 
-% jezeli przedział jest podany na odwrót to odwaracamy go
+% działanie funkcji jest zakończone z sukcesem jeżeli kolejne dwa
+% przybliżenia nie różnią się o więcej niż eps lub porażką, jeżeli
+% przekroczono maksymalną możliwą liczbę kroków
 
+%% parametry funkcji
+% f - funkcja z R w R
+% x1, x2 - liczby rzeczywiste
+% eps - wartość przybliżenia
+% maksymalna liczba kroków
+
+%% funkcja zwraca znalezione miejsce zerowe w przypadku sukcesu i 
+% liczbę iteracji w jakiej je osiągnięto, bądź NaN i maksymalną liczbę
+% iteracji + 1
+
+% ustawiamy domyślne wartości startowe funkcji
 if nargin <= 1
     x1 = 1;
     x2 = 2;
@@ -22,7 +36,7 @@ iter = 2;
 % kolejne przybliżenia
 x = zeros(max_iter+1, 1);
 
-%fx = zeros(max_iter+1, 1); dla lepszego performancu
+%fx = zeros(max_iter+1, 1); opcja dla lepszego performancu
 
 % ustalamy pierwsze dwa przybliżenia
 x(1) = x1;
@@ -41,9 +55,7 @@ while iter <= max_iter
     iter = iter + 1;
 end
 % jezeli doszlismy do tego miejsca to de facto nie znaleziono miejsca zerowego
-disp("brak miejsca zerowego")
-x_0 = x(iter);
-
-
-
+% disp("brak miejsca zerowego")
+x_0 = NaN;
+iter = max_iter+1;
 end
