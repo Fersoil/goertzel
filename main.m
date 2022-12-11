@@ -6,9 +6,6 @@ while(true)
 f_x = find_cos(a, x);
 f_x_prim = find_cos_dw(a, x);
 f_x_bis = find_cos_ddw(a, x);
-% f_x = goertzelCos(a, x);
-% f_x_prim = goertzelCosDerivative(a, x);
-% f_x_bis = goertzelCos2ndDerivative(a, x);
 
 delta = f_x_prim ^ 2 - 2 * f_x * f_x_bis;
 delta_sqrt = sqrt(delta);
