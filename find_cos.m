@@ -1,4 +1,4 @@
-function [w] = find_cos(z, factors)
+function [w] = find_cos(factors, z)
 % funkcja oblicza wartość wielomianu p(x) = sum_{k=1}^n a_n * cos(kx) 
 % za pomocą funckji goertzel.m
 % parametry

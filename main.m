@@ -1,20 +1,14 @@
 a = [1 2 3 4 5 6];
-x = 2 + 1i; % dobieramy przyblizenie poczatkowe
-
-% disp(x)
+x = -2 + 5i; % dobieramy przyblizenie poczatkowe
 
 while(true)
- 
-f_x = goertzelCos(a, x);
-f_x_prim = goertzelCosDerivative(a, x);
-f_x_bis = goertzelCos2ndDerivative(a, x);
-% f_x = x^3 + 2*x^2 + 3*x + 5;
-% f_x_prim = 3*x^2 + 4*x + 3;
-% f_x_bis = 6*x + 4;
 
-disp(f_x);
-disp(f_x_prim);
-disp(f_x_bis);
+f_x = find_cos(a, x);
+f_x_prim = find_cos_dw(a, x);
+f_x_bis = find_cos_ddw(a, x);
+% f_x = goertzelCos(a, x);
+% f_x_prim = goertzelCosDerivative(a, x);
+% f_x_bis = goertzelCos2ndDerivative(a, x);
 
 delta = f_x_prim ^ 2 - 2 * f_x * f_x_bis;
 delta_sqrt = sqrt(delta);
