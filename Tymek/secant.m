@@ -51,7 +51,7 @@ end
 while iter <= max_iter
     % jezeli przybliżenia są dostatecznie blisko siebie, to konczymy
     % dzialanie programu
-    if abs(x(iter-1) - x(iter)) < eps
+    if abs(x(iter-1) - x(iter)) < eps %&& abs(f(x(iter))) < eps
         x_0 = x(iter);
         return 
     end

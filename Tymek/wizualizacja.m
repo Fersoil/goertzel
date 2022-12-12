@@ -49,6 +49,8 @@ factors4 = rand(100,1);
 
 f4 = @(x)find_cos(x, factors4);
 
+graphFunc(f4);
+
 visualise(@secant, f4, A);
 
 %% teraz cos co nie jest nigdy zbieżne - przykład 5
@@ -79,6 +81,7 @@ visualise(@secant, f6, A);
 factors7 = [2,1,3,7];
 f7 = @(x)find_cos(x, factors7);
 
+graphFunc(f7)
 %visualise(@secant, f7, A, 100);
 
 [wynik, iter] = secant(f7, 1, 0, 10^(-16), 10000)
@@ -88,20 +91,86 @@ f7(wynik)
 %% przykład 8 - tak naprawde to przykład 1, tylko, że porównanie dla większej liczby iteracji
 % powiedzmy ze to jest interesujące
 
-x_1 = 10^(-8);
+x_1 = 10^(-7);
 x_2 = 2*pi;
 % tutaj factors1
+
 
 [wynik, iter] = secant(f1, x_1, x_2, 10^(-16), 10^9)
 
 f1(wynik)
 
-%% przykład 9 - tak naprawde to przykład 1, tylko, że porównanie dla większej liczby iteracji
+%% przykład 8.1 - tak naprawde to przykład 1, tylko, że porównanie dla większej liczby iteracji
 % powiedzmy ze to jest interesujące
 
-x_1 = 1i;
+x_1 = 1i*0.9;
 % tutaj factors1
 
-[wynik, iter] = secant(f1, 1, 0, 10^(-16), 10000)
+graphFunc(f1, "y=f(x)", -2*pi, 2*pi)
+
+[wynik, iter] = secant(f1, x_1, 1, 10^(-16), 1000)
 
 f1(wynik)
+
+%% przykład 9 
+% powiedzmy ze to jest interesujące
+
+x_1 = 2;
+x_2 = 1;
+factors9 = [-1, 1000];
+f9 = @(x)find_cos(x, factors9);
+
+graphFunc(f9, "y=f(x)", -2*pi, 2*pi)
+
+[wynik, iter] = secant(f9, x_1, x_2, 10^(-16), 100000)
+
+f9(wynik)
+
+%% przykład 10 
+% powiedzmy ze to jest interesujące
+
+x_1 = 1i*0.9;
+% tutaj factors1
+
+factors10 = [-3, 1, 1, 1];
+f10 = @(x)find_cos(x, factors10);
+
+[wynik, iter] = secant(f10, 2, 1, 10^(-16), 1000)
+graphFunc(f10, "y=f(x)")
+
+f10(wynik)
+
+
+%% przykład 11
+% powiedzmy ze to jest interesujące
+
+x_1 = 1;
+x_2 - 0;
+% tutaj factors1
+
+factors11 = zeros(100, 1);
+factors11(2) = -1;
+factors11(3) = -1;
+factors11(100) = 1;
+f11 = @(x)find_cos(x, factors11);
+
+[wynik, iter] = secant(f11, x_1, x_2, 10^(-10), 1000)
+graphFunc(f11, "y=f(x)")
+
+f11(wynik)
+
+%% przykład 12
+% powiedzmy ze to jest interesujące
+
+x_1 = 1;
+x_2 - 0;
+% tutaj factors1
+
+factors12 = zeros(200, 1);
+factors12(200) = 10^(-10);
+f12 = @(x)find_cos(x, factors12);
+
+[wynik, iter] = secant(f12, x_1, x_2, 10^(-16), 1000)
+graphFunc(f12, "y=f(x)")
+
+f11(wynik)

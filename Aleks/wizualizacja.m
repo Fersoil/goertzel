@@ -9,7 +9,6 @@ limit_iter = 30;
 
 factors1 = [1, 1];
 
-
 fprintf("Najprostszy przykład 1+cos(x)")
 
 heatmap(factors1, A, d1, limit_iter);
