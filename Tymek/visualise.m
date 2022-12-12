@@ -31,8 +31,8 @@ hold on
 minR = real(A(1,1));
 maxR = real(A(m, n));
 
-minI = imag(A(1,1));
-maxI = imag(A(m, n));
+maxI = imag(A(1,1));
+minI = imag(A(m, n));
 
 xlabel("Re(x)")
 ylabel("Im(x)")
@@ -47,7 +47,7 @@ ylim([minI, maxI])
 
 imagesc(x, y, B)
 colorbar
-title("Wizualizacja szybkości zbieżności")
+title("Wizualizacja szybkości zbieżności metody siecznych")
 
 
 

@@ -13,8 +13,8 @@ while(true)
 f_x = find_cos(factors, x);
 f_x_der = find_cos_derivative(factors, x);
 
-disp(f_x);
-disp(f_x_der);
+%disp(f_x);
+%disp(f_x_der);
 
 x_prev = x;
 x = x-(f_x/f_x_der);
@@ -33,9 +33,9 @@ end
 end
 
 if (success==1)
-    disp("Miejsce zerowe: ");
-    disp(x);
-    disp(find_cos(factors, x));
+    %disp("Miejsce zerowe: ");
+    %disp(x);
+    %disp(find_cos(factors, x));
 elseif (success==0)
-    disp("Metoda rozbieżna dla podanego x_0");
+    %disp("Metoda rozbieżna dla podanego x_0");
 end 

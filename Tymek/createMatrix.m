@@ -8,8 +8,8 @@ A = zeros(n,m);
 
 for i = 1:n
     for j = 1:m
-        A(i, j) = a_1 + (i-1)*(a_2 - a_1)/(n-1) + 1i*(b_1 + (j-1)*(b_2 - b_1)/(m-1));
+        A(i, m - j + 1) = a_1 + (i-1)*(a_2 - a_1)/(n-1) + 1i*(b_1 + (j-1)*(b_2 - b_1)/(m-1));
     end
 end
-
+A = transpose(A);
 end
