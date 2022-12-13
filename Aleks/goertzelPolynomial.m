@@ -1,5 +1,6 @@
 function [result] = goertzelPolynomial(factors, z)
-  %zwraca przybliżenie wartości wielomianu wg algorytmu goertzela
+  % funkcja zwraca przybliżenie wartości wielomianu
+  % przy użyciu algorytmu Goertzela
   x = real(z);
   y = imag(z);
   
