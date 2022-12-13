@@ -1,9 +1,8 @@
 function [x, iter] = Newton(factors, x_0, d1, limit_iter)
+% funkcja zwraca przybliżenie miejsca zerowego wielomianu
+% p(x) = sum_{k=1}^n a_k * cos(kx) przy użyciu metody Newtona
 
-%factors = 1:6;
-%x = 2+8i; % dobieramy przyblizenie poczatkowe x_0
-%d1 = 10^(-10);
-%limit_iter = 30;
+
 x = x_0;
 iter = 0;
 success = 1;

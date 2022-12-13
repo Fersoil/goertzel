@@ -1,11 +1,11 @@
 function [B] = MatrixOfIterations(factors, A, d1, limit_iter)
-%matrixOfIterations zwraca macierz B oznaczającą liczbę iteracji potrzebną do
-% osiągnięcia miejsca zerowego dla danego miejsca w macierzy A
+% funkcja zwraca macierz B, której elementy odpowiadają liczbie iteracji
+% potrzebnej do przybliżenia miejsca zerowego wielomianu z przybliżeniem
+% początkowym zaczerpniętym z macierzy A
 
 % to znaczy, jeżeli na miejscu (i, j) w macierzy A znajduje się liczba x, 
 % to w miejscu (i, j) w macierzy B będzie znajdować się liczba iteracji
 % potrzebnych do znalezienia miejsca zerowego, gdzie punkt startowy to x
-% (drugi punkt startowy jest podany jako x2)
 
 
 % ustawiamy domyślne wartości startowe funkcji

@@ -1,13 +1,9 @@
 function [B] = heatmap(factors, A, d1, limit_iter)
-%visualise funkcja wykonuje heatmape wizualizującą zbieżność podanej
-%metody approx_func dla funkcji func, która jest wykonywana dla danych z
-%macierzy A
+% funkcja generuje 'heatmapę' czyli mapę kolorów, gdzie kolor zależy 
+% od wartości w danym wierszu i kolumnie macierzy
+% im mniejsza wartość tym kolor bardziej zbliżony do granatowego,
+% im mniejsza wartość tym kolor bardziej zbliżony do żółtego
 
-% approx_func - funkcja szukająca miejsca zerowego
-% func - funkcja której miejsca zerowego szukamy
-% A - macierz zespolonych wartości startowych x_1 z których rozpoczynamy
-% poszukiwania miejsca zerowego (dla metody siecznych domyślny drugi punkt
-% startowy to 0)
 
 % ustawiamy domyślne wartości startowe funkcji
 if nargin <= 3
@@ -44,6 +40,10 @@ ylim([minI, maxI])
 
 imagesc(x, y, B)
 colorbar
+clim([0 30])
 title("Wizualizacja szybkości zbieżności metody Newtona")
+
+
+
 
 end
