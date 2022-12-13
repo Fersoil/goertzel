@@ -163,14 +163,113 @@ f11(wynik)
 % powiedzmy ze to jest interesujące
 
 x_1 = 1;
-x_2 - 0;
+x_2 = 0;
 % tutaj factors1
 
 factors12 = zeros(200, 1);
 factors12(200) = 10^(-10);
 f12 = @(x)find_cos(x, factors12);
 
-[wynik, iter] = secant(f12, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f12, x_1, x_2, 10^(-16), 100000)
 graphFunc(f12, "y=f(x)")
 
-f11(wynik)
+f12(wynik)
+
+%% przykład 13
+% powiedzmy ze to jest interesujące
+
+x_1 = 1;
+x_2 = 0;
+
+factors13 = [1.0341, 1, 0, 0, 0, 0, 0, 0, 0.1];
+f13 = @(x)find_cos(x, factors13);
+
+[wynik, iter] = secant(f13, x_1, x_2, 10^(-16), 1000)
+graphFunc(f13, "y=f(x)")
+
+f13(wynik)
+
+%% przykład 14
+% powiedzmy ze to jest interesujące
+
+x_1 = 0.1;
+x_2 = 1;
+
+factors14 = zeros(201, 1);
+factors14(3) = 1;
+factors14(21) = 1;
+factors14(201) = 1;
+f14 = @(x)find_cos(x, factors14);
+
+[wynik, iter] = secant(f14, x_1, x_2, 10^(-16), 1000)
+graphFunc(f14, "y=f(x)")
+
+f14(wynik)
+
+%% przykład 15
+% powiedzmy ze to jest interesujące
+
+x_1 = 0;
+x_2 = 1;
+
+factors15 = zeros(11, 1);
+factors15(2) = exp(1);
+factors15(11) = -10;
+f15 = @(x)find_cos(x, factors15);
+
+[wynik, iter] = secant(f15, x_1, x_2, 10^(-16), 1000)
+graphFunc(f15, "y=f(x)")
+
+f15(wynik)
+
+
+%% przykład 16
+% powiedzmy ze to jest interesujące
+
+x_1 = 1;
+x_2 = 0;
+
+factors16 = zeros(11, 1);
+factors16(1) = exp(1);
+factors16(2) = pi;
+factors16(11) = 1/pi;
+f16 = @(x)find_cos(x, factors16);
+
+[wynik, iter] = secant(f16, x_1, x_2, 10^(-16), 1000)
+graphFunc(f16, "y=f(x)")
+
+f16(wynik)
+
+%% przykład 17
+% powiedzmy ze to jest interesujące
+
+x_1 = 1;
+x_2 = 0;
+
+factors17 = zeros(11, 1);
+factors17(11) = 10^(-10);
+f17 = @(x)find_cos(x, factors17);
+
+[wynik, iter] = secant(f17, x_1, x_2, 10^(-16), 1000)
+graphFunc(f17, "y=f(x)")
+
+f17(wynik)
+
+%% przykład 18
+% powiedzmy ze to jest interesujące
+
+x_1 = 0;
+x_2 = 1;
+
+factors18 = zeros(201, 1);
+factors18(1) = 2;
+factors18(2) = 1;
+factors18(3) = 1;
+factors18(4) = 1;
+factors18(201) = 1;
+f18 = @(x)find_cos(x, factors18);
+
+[wynik, iter] = secant(f18, x_1, x_2, 10^(-16), 10000)
+graphFunc(f18, "y=f(x)")
+
+f18(wynik)

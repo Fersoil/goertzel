@@ -50,7 +50,4 @@ colorbar
 title("Wizualizacja szybkości zbieżności metody siecznych")
 
 
-
-
-
 end
