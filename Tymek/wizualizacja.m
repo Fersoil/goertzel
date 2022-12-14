@@ -84,7 +84,7 @@ f7 = @(x)find_cos(x, factors7);
 graphFunc(f7)
 %visualise(@secant, f7, A, 100);
 
-[wynik, iter] = secant(f7, 1, 0, 10^(-16), 10000)
+[wynik, iter] = secant(f7, 1, 0, 10^(-16), 10^6)
 
 f7(wynik)
 
@@ -96,7 +96,7 @@ x_2 = 2*pi;
 % tutaj factors1
 
 
-[wynik, iter] = secant(f1, x_1, x_2, 10^(-16), 10^9)
+[wynik, iter] = secant(f1, x_1, x_2, 10^(-16), 10^6)
 
 f1(wynik)
 
@@ -108,21 +108,24 @@ x_1 = 1i*0.9;
 
 graphFunc(f1, "y=f(x)", -2*pi, 2*pi)
 
-[wynik, iter] = secant(f1, x_1, 1, 10^(-16), 1000)
+[wynik, iter] = secant(f1, x_1, 1, 10^(-16), 10^6)
 
 f1(wynik)
+% domyslna funkcja fzero nie jest zbieżna w tym przypadku
+fzero(f1, 0, optimset('Display','iter'))
 
+% mimo, że f1(pi) = 0
 %% przykład 9 
 % powiedzmy ze to jest interesujące
 
-x_1 = 2;
+x_1 = 4;
 x_2 = 1;
 factors9 = [-1, 1000];
 f9 = @(x)find_cos(x, factors9);
 
 graphFunc(f9, "y=f(x)", -2*pi, 2*pi)
 
-[wynik, iter] = secant(f9, x_1, x_2, 10^(-16), 100000)
+[wynik, iter] = secant(f9, x_1, x_2, 10^(-16), 10^6)
 
 f9(wynik)
 
@@ -135,7 +138,7 @@ x_1 = 1i*0.9;
 factors10 = [-3, 1, 1, 1];
 f10 = @(x)find_cos(x, factors10);
 
-[wynik, iter] = secant(f10, 2, 1, 10^(-16), 1000)
+[wynik, iter] = secant(f10, 2, 1, 10^(-16), 10^6)
 graphFunc(f10, "y=f(x)")
 
 f10(wynik)
@@ -144,7 +147,7 @@ f10(wynik)
 %% przykład 11
 % powiedzmy ze to jest interesujące
 
-x_1 = 1;
+x_1 = 3;
 x_2 - 0;
 % tutaj factors1
 
@@ -154,7 +157,7 @@ factors11(3) = -1;
 factors11(100) = 1;
 f11 = @(x)find_cos(x, factors11);
 
-[wynik, iter] = secant(f11, x_1, x_2, 10^(-10), 1000)
+[wynik, iter] = secant(f11, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f11, "y=f(x)")
 
 f11(wynik)
@@ -162,7 +165,7 @@ f11(wynik)
 %% przykład 12
 % powiedzmy ze to jest interesujące
 
-x_1 = 1;
+x_1 = 5;
 x_2 = 0;
 % tutaj factors1
 
@@ -170,7 +173,7 @@ factors12 = zeros(200, 1);
 factors12(200) = 10^(-10);
 f12 = @(x)find_cos(x, factors12);
 
-[wynik, iter] = secant(f12, x_1, x_2, 10^(-16), 100000)
+[wynik, iter] = secant(f12, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f12, "y=f(x)")
 
 f12(wynik)
@@ -178,16 +181,18 @@ f12(wynik)
 %% przykład 13
 % powiedzmy ze to jest interesujące
 
-x_1 = 1;
+x_1 = 25;
 x_2 = 0;
 
 factors13 = [1.0341, 1, 0, 0, 0, 0, 0, 0, 0.1];
 f13 = @(x)find_cos(x, factors13);
 
-[wynik, iter] = secant(f13, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f13, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f13, "y=f(x)")
 
 f13(wynik)
+
+fzero(f13, 25, optimset('Display','iter'))
 
 %% przykład 14
 % powiedzmy ze to jest interesujące
@@ -201,10 +206,13 @@ factors14(21) = 1;
 factors14(201) = 1;
 f14 = @(x)find_cos(x, factors14);
 
-[wynik, iter] = secant(f14, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f14, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f14, "y=f(x)")
 
 f14(wynik)
+
+
+fzero(f14, 0.1, optimset('Display','iter'))
 
 %% przykład 15
 % powiedzmy ze to jest interesujące
@@ -217,7 +225,7 @@ factors15(2) = exp(1);
 factors15(11) = -10;
 f15 = @(x)find_cos(x, factors15);
 
-[wynik, iter] = secant(f15, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f15, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f15, "y=f(x)")
 
 f15(wynik)
@@ -235,7 +243,7 @@ factors16(2) = pi;
 factors16(11) = 1/pi;
 f16 = @(x)find_cos(x, factors16);
 
-[wynik, iter] = secant(f16, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f16, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f16, "y=f(x)")
 
 f16(wynik)
@@ -250,11 +258,12 @@ factors17 = zeros(11, 1);
 factors17(11) = 10^(-10);
 f17 = @(x)find_cos(x, factors17);
 
-[wynik, iter] = secant(f17, x_1, x_2, 10^(-16), 1000)
+[wynik, iter] = secant(f17, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f17, "y=f(x)")
 
 f17(wynik)
 
+fzero(f17, 1, optimset('Display','iter'))
 %% przykład 18
 % powiedzmy ze to jest interesujące
 
@@ -269,7 +278,7 @@ factors18(4) = 1;
 factors18(201) = 1;
 f18 = @(x)find_cos(x, factors18);
 
-[wynik, iter] = secant(f18, x_1, x_2, 10^(-16), 10000)
+[wynik, iter] = secant(f18, x_1, x_2, 10^(-16), 10^6)
 graphFunc(f18, "y=f(x)")
 
 f18(wynik)
