@@ -1,6 +1,7 @@
 function [w] = find_cos_derivative(factors, z)
-%FIND_COS_DW Summary of this function goes here
-%   Detailed explanation goes here
+% funkcja pozwala znaleźć pochodną wielomianu
+% p(x) = sum_{k=1}^n a_k * cos(kx)
+
 if not(iscolumn(factors))
     factors = factors';
 end
