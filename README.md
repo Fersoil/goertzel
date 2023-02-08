@@ -12,7 +12,7 @@ Mieliśmy za zadanie napisać, a także opisać działanie następujących metod
 2. metoda stycznych
 3. metoda Newtona
 
-Co więcej wartości wielomianu miały być wyznaczane za pomocą algorytmu Goerzela.
+Co więcej wartości wielomianu miały być wyznaczane za pomocą algorytmu Goertzela.
 
 ---
 
